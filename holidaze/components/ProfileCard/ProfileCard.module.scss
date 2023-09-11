@@ -1,0 +1,39 @@
+/* ProfileCard.module.css */
+.profileCard {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: #f0f0f0;
+
+  input {
+    padding: 6px 14px;
+  }
+  button {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 8px 16px; /* Padding for the button */
+    cursor: pointer; /* Show pointer cursor on hover */
+    margin-top: 8px; /* Add space above the button */
+    border-radius: 4px; /* Add a subtle border radius */
+    transition: background-color 0.3s; /* Smooth background color transition */
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+}
+
+.avatarContainer {
+  text-align: center;
+}
+
+.avatarContainer img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.userInfo {
+  margin-top: 8px;
+}
