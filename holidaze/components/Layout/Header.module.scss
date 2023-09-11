@@ -1,0 +1,35 @@
+.header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Style for the navigation links */
+  nav {
+    a {
+      color: #fff; /* Link text color */
+      text-decoration: none; /* Remove underlines */
+      margin: 0 1rem; /* Spacing between links */
+      font-weight: bold; /* Make the text bold */
+      transition: color 0.3s ease; /* Smooth color transition on hover */
+
+      &:hover {
+        color: #e5e5e5; /* Change color on hover */
+      }
+    }
+  }
+
+  button {
+    padding: 10px 16px;
+  }
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
