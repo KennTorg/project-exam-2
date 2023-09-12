@@ -1,201 +1,127 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom"; // If you're using React Router
-// import { fetchVenueDetails } from "@/utils/api/fetchVenue";
+import React, { useState } from "react";
+import { API_URL } from "@/utils/api/constants";
 
-// const BookingForm = ({ onBookingSuccess }) => {
-//   const { venueId } = useParams(); // Get the venueId from the URL params
+const BookingForm = ({ venueId }) => {
+  const [formData, setFormData] = useState({
+    dateFrom: "",
+    dateTo: "",
+    guests: 1, // Default to 1 guest
+  });
 
-//   const [formData, setFormData] = useState({
-//     dateFrom: "",
-//     dateTo: "",
-//     guests: 0,
-//   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
-//   const [venueDetails, setVenueDetails] = useState(null);
+  const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 
-//   useEffect(() => {
-//     // Fetch venue details when the component mounts
-//     fetchVenueDetails(venueId)
-//       .then((data) => {
-//         if (data) {
-//           setVenueDetails(data);
-//         }
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching venue details:", error);
-//       });
-//   }, [venueId]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-//   const handleFormSubmit = async (e) => {
-//     e.preventDefault();
+    try {
+      // Format the date fields in ISO 8601 format
+      const isoDateFrom = new Date(formData.dateFrom).toISOString();
+      const isoDateTo = new Date(formData.dateTo).toISOString();
 
-//     // Format dateFrom and dateTo to ISO 8601 format
-//     const formattedDateFrom = new Date(formData.dateFrom).toISOString();
-//     const formattedDateTo = new Date(formData.dateTo).toISOString();
+      // Parse the guests value as an integer
+      const guests = parseInt(formData.guests, 10);
 
-//     try {
-//       // Retrieve the access token from localStorage
-//       const accessToken = localStorage.getItem("accessToken");
+      // Check if guests is a valid number
+      if (!isNaN(guests)) {
+        // Send a POST request to create the booking
+        const response = await fetch(`${API_URL}/bookings`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            dateFrom: isoDateFrom, // Format dateFrom
+            dateTo: isoDateTo, // Format dateTo
+            guests: guests, // Use the parsed guests value
+            venueId: venueId,
+          }),
+        });
 
-//       const headers = {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${accessToken}`,
-//       };
+        if (response.ok) {
+          setSuccess(true);
+          setError(null);
+          // Resets the form
+          setFormData({
+            dateFrom: "",
+            dateTo: "",
+            guests: 1,
+          });
+        } else {
+          setSuccess(false);
+          setError("Booking failed. Please try again later.");
+        }
+      } else {
+        setSuccess(false);
+        setError("Guests must be a valid number.");
+      }
+    } catch (error) {
+      setSuccess(false);
+      setError("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-//       // Create the booking request
-//       const response = await fetch(`${API_URL}/bookings`, {
-//         method: "POST",
-//         headers: headers,
-//         body: JSON.stringify({
-//           dateFrom: formattedDateFrom,
-//           dateTo: formattedDateTo,
-//           guests: parseInt(formData.guests), // Ensure guests is a number
-//           venueId: venueId,
-//         }),
-//       });
+  return (
+    <div>
+      <h2>Book this Venue</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor='dateFrom'>Start Date:</label>
+          <input
+            type='datetime-local'
+            id='dateFrom'
+            name='dateFrom'
+            value={formData.dateFrom}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor='dateTo'>End Date:</label>
+          <input
+            type='datetime-local'
+            id='dateTo'
+            name='dateTo'
+            value={formData.dateTo}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor='guests'>Number of Guests:</label>
+          <input
+            type='number'
+            id='guests'
+            name='guests'
+            value={formData.guests}
+            onChange={handleChange}
+            min='1'
+            required
+          />
+        </div>
+        <button type='submit' disabled={loading}>
+          {loading ? "Booking..." : "Book Now"}
+        </button>
+      </form>
+      {error && <p className='error'>{error}</p>}
+      {success && <p className='success'>Booking successful!</p>}
+    </div>
+  );
+};
 
-//       if (response.ok) {
-//         onBookingSuccess();
-//         // Clear the form or show a success message
-//       } else {
-//         console.error("Failed to create booking:", response.statusText);
-//       }
-//     } catch (error) {
-//       console.error("An error occurred while creating booking:", error);
-//     }
-//   };
-
-//   console.log("Form Data:", formData);
-
-//   return (
-//     <div>
-//       {venueDetails ? (
-//         <>
-//           <h2>Book {venueDetails.name}</h2>
-//           <p>{venueDetails.description}</p>
-//           <form onSubmit={handleFormSubmit}>
-//             {/* Form input fields */}
-//             {/* ... */}
-//             <button type='submit'>Book Now</button>
-//           </form>
-//         </>
-//       ) : (
-//         <p>Loading venue details...</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default BookingForm;
-
-// ===========================================================================================
-
-// import React, { useState } from "react";
-// import { API_URL } from "@/utils/api/constants";
-
-// const BookingForm = ({ venueId, onBookingSuccess }) => {
-//   const [formData, setFormData] = useState({
-//     dateFrom: "",
-//     dateTo: "",
-//     guests: 0,
-//   });
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleFormSubmit = async (e) => {
-//     e.preventDefault();
-
-//     // Format dateFrom and dateTo to ISO 8601 format
-//     const formattedDateFrom = new Date(formData.dateFrom).toISOString();
-//     const formattedDateTo = new Date(formData.dateTo).toISOString();
-
-//     try {
-//       // Retrieve the access token from localStorage
-//       const formData = localStorage.getItem("accessToken");
-
-//       // THERE IS SOMETHING WIERD HERE FIX THIS =========================
-//       const headers = {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${accessToken}`,
-//       };
-
-//       const response = await fetch(`${API_URL}/bookings`, {
-//         method: "POST",
-//         headers: headers,
-//         body: JSON.stringify({
-//           dateFrom: formattedDateFrom,
-//           dateTo: formattedDateTo,
-//           guests: parseInt(formData.guests), // Ensure guests is a number
-//           venueId: venueId,
-//         }),
-//       });
-//       console.log(storedData);
-
-//       if (response.ok) {
-//         // onBookingSuccess();
-//         // Clear the form or show a success message
-//       } else {
-//         console.error("Failed to create booking:", response.statusText);
-//       }
-//     } catch (error) {
-//       console.error("An error occurred while creating booking:", error);
-//     }
-//   };
-
-//   console.log("Form Data:", formData);
-
-//   return (
-//     <div>
-//       <h2>Book this venue</h2>
-//       <form onSubmit={handleFormSubmit}>
-//         <label>
-//           Check-in Date:
-//           <input
-//             type='date'
-//             name='dateFrom'
-//             value={formData.dateFrom}
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </label>
-//         <label>
-//           Check-out Date:
-//           <input
-//             type='date'
-//             name='dateTo'
-//             value={formData.dateTo}
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </label>
-//         <label>
-//           Number of Guests:
-//           <input
-//             type='number'
-//             name='guests'
-//             value={formData.guests}
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </label>
-//         <button type='submit'>Book Now</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default BookingForm;
+export default BookingForm;
