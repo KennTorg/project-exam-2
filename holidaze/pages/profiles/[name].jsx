@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { API_URL } from "@/utils/api/constants";
 import ProfileCard from "@/components/ProfileCard";
 import Layout from "@/components/Layout";
+import UpcomingBookings from "@/components/UpcomingBooking";
 
 const UserProfile = () => {
   const router = useRouter();
@@ -63,6 +64,9 @@ const UserProfile = () => {
           ) : (
             <p>Loading user data...</p>
           )}
+        </div>
+        <div>
+          <UpcomingBookings customerId={name} />
         </div>
       </div>
     </Layout>
