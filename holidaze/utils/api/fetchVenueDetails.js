@@ -5,9 +5,9 @@ import { API_URL } from "@/utils/api/constants";
 const fetchVenueDetails = async (venueId) => {
   try {
     // Define the query parameter for including bookings
-    const queryParams = new URLSearchParams({ _bookings: false });
+    const queryParams = new URLSearchParams({ _bookings: true });
 
-    console.log("Fetching URL:", `${API_URL}/venues/${venueId}`);
+    console.log(`${API_URL}/venues/${venueId}?_bookings=true`);
     // Send a GET request to fetch venue details
     const response = await fetch(
       `${API_URL}/venues/${venueId}?${queryParams.toString()}`
@@ -15,23 +15,19 @@ const fetchVenueDetails = async (venueId) => {
 
     // Check if the response is successful (status code 200)
     if (response.ok) {
-      // Parse the JSON response and return the data
       const data = await response.json();
 
-      // ==================== FILTERS THE BOOKINGS DUNNO IF ITS WORKING PROPERLY... ===========
-      // // Ensure that the 'bookings' property exists and is an array
-      // if (Array.isArray(data.bookings)) {
-      //   // Filter bookings for the specific venueId
-      //   const venueBookings = data.bookings.filter(
-      //     (booking) => booking.venue && booking.venue.id === venueId
-      //   );
+      // Filter the booking
+      if (Array.isArray(data.bookings)) {
+        const venueBookings = data.bookings.filter(
+          (booking) => booking.id === venueId
+        );
 
-      //   // Add the filtered bookings back to the data
-      //   data.bookings = venueBookings;
-      // } else {
-      //   // If 'bookings' is not an array, set it to an empty array
-      //   data.bookings = [];
-      // }
+        // Replace the 'bookings' property with filtered bookings
+        data.bookings = venueBookings;
+      } else {
+        data.bookings = [];
+      }
 
       return data;
     } else {

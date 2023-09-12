@@ -12,6 +12,7 @@ const VenueDetails = ({ venueId }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [bookedDates, setBookedDates] = useState([]); // State to store booked dates
 
   useEffect(() => {
     // Define an async function to fetch venue details
@@ -150,9 +151,12 @@ const VenueDetails = ({ venueId }) => {
               )}
             </ul>
           </div>
+          <div className={styles.calendarContainer}>
+            <h2>Availability Calendar</h2>
+            <VenueCalendar availableDates={bookedDates} />
+          </div>
 
-          {/* <BookingForm venueId={venueId} /> */}
-          {/* <VenueCalendar availableDates={availableDates} /> */}
+          <BookingForm venueId={venueId} />
         </>
       )}
     </div>
