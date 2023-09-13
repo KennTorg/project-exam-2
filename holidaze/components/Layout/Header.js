@@ -10,7 +10,7 @@ const Header = () => {
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData && userData.name) {
-      setUser({ username: userData.name }); // Set the user object with their username
+      setUser({ username: userData.name, venueManager: userData.venueManager }); // Set the user object with their username and venueManager
     }
   }, []);
 
@@ -26,9 +26,14 @@ const Header = () => {
         <Link href='/login'>Login</Link>
         <Link href='/register'>Register</Link>
         {user ? (
-          <Link href='/profiles/[name]' as={`/profiles/${user.username}`}>
-            Profile
-          </Link>
+          <>
+            <Link href='/profiles/[name]' as={`/profiles/${user.username}`}>
+              Profile
+            </Link>
+            {user.venueManager && (
+              <Link href='/venueManagement'>Venue Management</Link>
+            )}
+          </>
         ) : (
           <Link href='/profiles'>Profile</Link>
         )}
