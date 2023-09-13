@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { API_URL } from "@/utils/api/constants";
 import { useRouter } from "next/router";
+import { saveToLocalStorage, loadFromLocalStorage } from "@/utils/localStorage";
 
 const UpcomingBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -15,6 +16,14 @@ const UpcomingBookings = () => {
     // Define an async function to fetch upcoming bookings for the customer
     const fetchUpcomingBookings = async () => {
       try {
+        // Check if bookings exist in localStorage
+        const storedBookings = loadFromLocalStorage("userBookings");
+
+        if (storedBookings) {
+          // If bookings exist in localStorage, set them as initial state
+          setBookings(storedBookings);
+        }
+
         // Get the access token from local storage
         const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 
@@ -33,20 +42,26 @@ const UpcomingBookings = () => {
 
         if (response.ok) {
           const bookingData = await response.json();
+
+          // Save the retrieved bookings to localStorage
+          saveToLocalStorage("userBookings", bookingData);
+
+          // Set the state with the retrieved bookings
           setBookings(bookingData);
-          setLoading(false);
         } else {
           setError("Failed to fetch upcoming bookings");
-          setLoading(false);
         }
       } catch (error) {
         setError("An error occurred while fetching upcoming bookings");
+      } finally {
         setLoading(false);
       }
     };
 
     // Call the fetchUpcomingBookings function when the component mounts
-    fetchUpcomingBookings();
+    if (name) {
+      fetchUpcomingBookings();
+    }
   }, [name]); // Run this effect when customerId changes
 
   // Loading state
