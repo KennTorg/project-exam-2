@@ -1,11 +1,10 @@
 import Layout from "@/components/Layout";
+import CreateVenue from "@/components/CreateVenue";
 
 export default function venueManagement() {
   return (
     <Layout>
-      <div>
-        <h1>MEEEH</h1>
-      </div>
+      <CreateVenue />
     </Layout>
   );
 }
