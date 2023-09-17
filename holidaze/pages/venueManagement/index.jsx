@@ -1,10 +1,11 @@
+import React from "react";
 import Layout from "@/components/Layout";
-import CreateVenue from "@/components/CreateVenue";
+import ManageVenues from "@/components/Management/ManageVenues";
 
-export default function venueManagement() {
+export default function VenueManagement() {
   return (
     <Layout>
-      <CreateVenue />
+      <ManageVenues />
     </Layout>
   );
 }
