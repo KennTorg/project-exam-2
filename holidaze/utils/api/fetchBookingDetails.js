@@ -18,7 +18,7 @@ const fetchBookingDetails = async (bookingId) => {
     // Parse the access token string to remove double quotes
     const accessToken = JSON.parse(accessTokenString);
 
-    console.log(accessToken);
+    //console.log(accessToken);
 
     // Send a GET request to fetch booking details with _venue=true query parameter and include the access token in the headers
     const response = await fetch(`${API_URL}/bookings/${bookingId}`, {

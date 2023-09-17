@@ -3,6 +3,7 @@ import moment from "moment";
 import { API_URL } from "@/utils/api/constants";
 import { useRouter } from "next/router";
 import { saveToLocalStorage, loadFromLocalStorage } from "@/utils/localStorage";
+import styles from "./UpcomingBooking.module.scss";
 
 const UpcomingBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -75,7 +76,7 @@ const UpcomingBookings = () => {
   }
 
   return (
-    <div>
+    <div className={styles["upcoming-bookings"]}>
       <h2>Upcoming Bookings</h2>
       {bookings.length > 0 ? (
         <ul>
