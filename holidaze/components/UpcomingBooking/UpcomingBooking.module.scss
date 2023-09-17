@@ -1,0 +1,41 @@
+/* UpcomingBookings.module.scss */
+
+.upcoming-bookings {
+  max-width: 600px; /* Limit the width of the content */
+  margin: 0 auto; /* Center align the content */
+  padding: 20px; /* Add some padding to the content */
+
+  h2 {
+    font-size: 24px; /* Increase the font size for headings */
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+
+  ul {
+    list-style: none; /* Remove bullet points from the list */
+    padding: 0; /* Remove default padding from the list */
+  }
+
+  li {
+    background-color: #f9f9f9; /* Background color for each booking item */
+    border: 1px solid #ccc; /* Border for each booking item */
+    border-radius: 8px; /* Rounded corners for each booking item */
+    padding: 16px; /* Add some padding to each booking item */
+    margin-bottom: 16px; /* Spacing between booking items */
+
+    p {
+      margin: 0; /* Remove default margin for paragraphs */
+      font-size: 16px; /* Set the font size for paragraphs */
+      line-height: 1.4; /* Adjust line height for readability */
+    }
+
+    /* Add more styles as needed */
+  }
+
+  /* Loading and error states */
+  .loading,
+  .error {
+    font-size: 18px; /* Adjust font size for loading and error messages */
+    text-align: center; /* Center align loading and error messages */
+    margin-top: 20px; /* Add spacing above loading and error messages */
+  }
+}
