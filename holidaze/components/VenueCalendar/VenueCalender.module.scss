@@ -1,25 +1,61 @@
-/* VenueCalender.module.scss */
+// /* VenueCalendar.module.scss */
 
-/* Style the calendar container */
-.calendar {
-  /* Your custom styles here */
-}
+// /* Style the calendar container */
+// .calendar {
+//   /* Your custom styles here */
+// }
 
-/* Style the calendar header (month, week, day) */
-.calendar .rbc-header {
-  background-color: #007bff; /* Header background color */
-  color: #fff; /* Header text color */
-}
+// /* Style the calendar header (month, week, day) */
+// .calendar .rbc-header {
+//   background-color: #007bff; /* Header background color */
+//   color: #fff; /* Header text color */
+// }
 
-/* Style calendar events */
-.calendar .rbc-event {
-  background-color: #f0f0f0; /* Event background color */
-  color: #333; /* Event text color */
-}
+// /* Style calendar events */
+// .calendar .rbc-event {
+//   background-color: #f0f0f0; /* Event background color */
+//   color: #333; /* Event text color */
+// }
 
-/* Style the calendar event tooltip */
-.calendar .rbc-overlay {
-  background-color: rgba(0, 0, 0, 0.8); /* Tooltip background color */
-  color: #fff; /* Tooltip text color */
-  border: none; /* Remove tooltip border */
-}
+// /* Style the calendar event tooltip */
+// .calendar .rbc-overlay {
+//   background-color: rgba(0, 0, 0, 0.8); /* Tooltip background color */
+//   color: #fff; /* Tooltip text color */
+//   border: none; /* Remove tooltip border */
+// }
+
+// /* Style the booked day */
+// .bookedDay {
+//   background-color: lightcoral; /* Light red color for booked days */
+//   color: #fff; /* Text color for booked days */
+//   padding: 2px;
+//   border-radius: 3px;
+// }
+
+// /* Style the selected date range */
+// .selectedRange {
+//   background-color: lightcoral; /* Light red color for selected range */
+//   color: #fff; /* Text color for selected range */
+//   padding: 2px;
+//   border-radius: 3px;
+// }
+
+/* VenueCalendar.module.scss */
+
+/* ... previous styles ... */
+
+// /* Style the booked day */
+// .bookedDay {
+//   background-color: lightcoral; /* Light red color for booked days */
+//   color: #fff; /* Text color for booked days */
+//   padding: 2px;
+//   border-radius: 3px;
+// }
+
+// /* Style the selected date range */
+// .selectedRange {
+//   background-color: lightcoral; /* Light red color for selected range */
+//   color: #fff; /* Text color for selected range */
+//   padding: 2px;
+//   border-radius: 3px;
+// }
