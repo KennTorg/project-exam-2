@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { API_URL } from "../../utils/api/constants";
+import { API_URL } from "@/utils/api/constants";
 import styles from "./Login.module.scss";
-import { saveToLocalStorage } from "../../utils/localStorage";
-import { useUser } from "../../context/UserContext"; // Import the UserContext
+import { saveToLocalStorage } from "@/utils/localStorage";
+import { useUser } from "@/context/UserContext";
 
 export const Login = () => {
   const router = useRouter();

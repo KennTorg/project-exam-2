@@ -6,6 +6,13 @@ import { API_URL } from "@/utils/api/constants";
 // Define the fetchBookingDetails function
 const fetchBookingDetails = async (bookingId) => {
   try {
+    // // Define the query parameters
+    // const queryParams = new URLSearchParams();
+    // if (includeOwner) {
+    //   queryParams.append("_owner", "true");
+    // }
+    // queryParams.append("_bookings", "true");
+
     // Get the access token from localStorage (replace 'your_access_token_key' with the actual key used)
     const accessTokenString = localStorage.getItem("accessToken");
 
@@ -21,7 +28,7 @@ const fetchBookingDetails = async (bookingId) => {
     //console.log(accessToken);
 
     // Send a GET request to fetch booking details with _venue=true query parameter and include the access token in the headers
-    const response = await fetch(`${API_URL}/bookings/${bookingId}`, {
+    const response = await fetch(`${API_URL}/bookings/${bookingId}?_bookings`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

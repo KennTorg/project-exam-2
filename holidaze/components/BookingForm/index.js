@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { API_URL } from "@/utils/api/constants";
+import styles from "./BookingForm.module.scss";
 
 const BookingForm = ({ venueId }) => {
   const [formData, setFormData] = useState({
@@ -77,7 +78,7 @@ const BookingForm = ({ venueId }) => {
   };
 
   return (
-    <div>
+    <div className={styles.bookingForm}>
       <h2>Book this Venue</h2>
       <form onSubmit={handleSubmit}>
         <div>

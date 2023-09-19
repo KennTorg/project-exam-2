@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import styles from "./Logout.module.scss";
-import { useUser } from "../../context/UserContext"; // Import the UserContext
+import { useUser } from "@/context/UserContext";
 
 const Logout = () => {
   const router = useRouter();

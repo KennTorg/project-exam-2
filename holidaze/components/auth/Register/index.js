@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from "next/router";
-import { API_URL } from "../../utils/api/constants";
+import { API_URL } from "@/utils/api/constants";
 import styles from "./Register.module.scss";
-import { saveToLocalStorage } from "../../utils/localStorage";
-import { useUser } from "../../context/UserContext"; // Import the UserContext
+import { saveToLocalStorage } from "@/utils/localStorage";
+import { useUser } from "@/context/UserContext";
 
 export const Register = () => {
   const router = useRouter();

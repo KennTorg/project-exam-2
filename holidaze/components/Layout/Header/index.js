@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link"; // Import Link
+import Link from "next/link";
 import styles from "./Header.module.scss";
-import Logout from "../auth/Logout";
+import Logout from "@/components/auth/Logout";
 
 const Header = () => {
   const [user, setUser] = useState(null); // Initialize user state to null

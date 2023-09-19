@@ -4,11 +4,9 @@ import VenueCalendar from "../VenueCalendar";
 import styles from "./VenueDetails.module.scss";
 import BookingForm from "../BookingForm";
 import fetchVenueDetails from "@/utils/api/fetchVenueDetails";
-import fetchBookingDetails from "@/utils/api/fetchBookingDetails";
 
 const VenueDetails = ({ venueId }) => {
   const [venue, setVenue] = useState(null);
-  const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [bookedDates, setBookedDates] = useState([]); // State to store booked dates
@@ -26,41 +24,26 @@ const VenueDetails = ({ venueId }) => {
         }
       } catch (error) {
         setError("An error occurred while fetching venue details");
-      }
-    };
-
-    // Define an async function to fetch booking details
-    const fetchBookings = async () => {
-      try {
-        const bookingData = await fetchBookingDetails(venueId);
-        if (bookingData) {
-          setBookings(bookingData);
-          console.log("Booking Data from API:", bookingData);
-        }
-      } catch (error) {
-        setError("An error occurred while fetching booking details");
       } finally {
         setLoading(false);
       }
-      console.log(venueId);
     };
 
-    // Call the fetchVenue and fetchBookings functions when the component mounts
+    // Call the fetchVenue function when the component mounts
     fetchVenue();
-    fetchBookings();
   }, [venueId]); // Run this effect when venueId changes
 
   useEffect(() => {
     // Calculate booked dates when bookings data changes
-    if (bookings.length > 0) {
-      const bookedDateRanges = bookings.map((booking) => ({
+    if (venue && venue.bookings && venue.bookings.length > 0) {
+      const bookedDateRanges = venue.bookings.map((booking) => ({
         start: moment(booking.dateFrom).toDate(),
         end: moment(booking.dateTo).toDate(),
       }));
 
       setBookedDates(bookedDateRanges);
     }
-  }, [bookings]);
+  }, [venue]);
 
   // Loading state
   if (loading) {
@@ -136,7 +119,7 @@ const VenueDetails = ({ venueId }) => {
             <p>Longitude: {venue.location.lng}</p>
           </div>
 
-          {/* Booking Details */}
+          {/* Booking Details REMOVE THIS */}
           <div className={styles.bookings}>
             <h2>Bookings</h2>
             <ul>
@@ -162,7 +145,12 @@ const VenueDetails = ({ venueId }) => {
           </div>
           <div className={styles.calendarContainer}>
             <h2>Availability Calendar</h2>
-            <VenueCalendar availableDates={bookedDates} />
+
+            <VenueCalendar
+              bookedDates={bookedDates}
+              dateFrom={venue.dateFrom}
+              dateTo={venue.dateTo}
+            />
           </div>
 
           <BookingForm venueId={venueId} />

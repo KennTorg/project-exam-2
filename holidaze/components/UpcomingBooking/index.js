@@ -4,6 +4,7 @@ import { API_URL } from "@/utils/api/constants";
 import { useRouter } from "next/router";
 import { saveToLocalStorage, loadFromLocalStorage } from "@/utils/localStorage";
 import styles from "./UpcomingBooking.module.scss";
+import Loader from "../Loader";
 
 const UpcomingBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -67,7 +68,7 @@ const UpcomingBookings = () => {
 
   // Loading state
   if (loading) {
-    return <p>Loading upcoming bookings...</p>;
+    return <Loader />;
   }
 
   // Error state
@@ -91,7 +92,7 @@ const UpcomingBookings = () => {
                 <>
                   <p>Venue Name: {booking.venue.name}</p>
                   <p>Venue Address: {booking.venue.location.address}</p>
-                  {/* Add more venue details as needed */}
+                  {/* Add more venue details if needed */}
                 </>
               )}
             </li>

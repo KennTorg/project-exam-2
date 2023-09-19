@@ -15,7 +15,7 @@ export const updateAvatar = async (name, newAvatarUrl) => {
 
     if (response.ok) {
       const data = await response.json();
-      return data; // Return the updated user profile
+      return data;
     } else {
       console.error("Failed to update avatar:", response.statusText);
       return null;
