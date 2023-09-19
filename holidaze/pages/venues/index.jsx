@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { API_URL } from "@/utils/api/constants";
 import VenuesList from "@/components/VenuesList"; // Import the VenuesList component
 import Layout from "@/components/Layout";
+import Loader from "@/components/Loader";
 
 const Venues = () => {
   const [venues, setVenues] = useState([]);
@@ -29,7 +30,7 @@ const Venues = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading venues...</p>;
+    return <Loader />;
   }
 
   return (
