@@ -4,6 +4,7 @@ import VenueCalendar from "../VenueCalendar";
 import styles from "./VenueDetails.module.scss";
 import BookingForm from "../BookingForm";
 import fetchVenueDetails from "@/utils/api/fetchVenueDetails";
+import Loader from "../Loader";
 
 const VenueDetails = ({ venueId }) => {
   const [venue, setVenue] = useState(null);
@@ -47,7 +48,7 @@ const VenueDetails = ({ venueId }) => {
 
   // Loading state
   if (loading) {
-    return <p>Loading venue details...</p>;
+    return <Loader />;
   }
 
   // Error state
@@ -63,7 +64,6 @@ const VenueDetails = ({ venueId }) => {
     <div className={styles.venueDetails}>
       {venue && (
         <>
-          <h1 className={styles.name}>{venue.name}</h1>
           <div className={styles.imageContainer}>
             {Array.isArray(venue.media) && venue.media.length > 0 ? (
               venue.media.map((imageUrl, index) => (
@@ -89,17 +89,8 @@ const VenueDetails = ({ venueId }) => {
             )}
           </div>
 
-          <div>
-            <p className={styles.description}>{venue.description}</p>
-            <p className={styles.details}>Price: {venue.price}</p>
-            <p className={styles.details}>Maximum Guests: {venue.maxGuests}</p>
-            <p className={styles.details}>Rating: {venue.rating}</p>
-            <p className={styles.details}>Created: {venue.created}</p>
-            <p className={styles.details}>Updated: {venue.updated}</p>
-          </div>
-
+          <h1 className={styles.name}>{venue.name}</h1>
           <div className={styles.meta}>
-            <p>Meta Information:</p>
             <ul>
               <li>WiFi: {venue.meta.wifi ? "Yes" : "No"}</li>
               <li>Parking: {venue.meta.parking ? "Yes" : "No"}</li>
@@ -108,43 +99,32 @@ const VenueDetails = ({ venueId }) => {
             </ul>
           </div>
 
+          <div className={styles.description}>
+            <p>{venue.description}</p>
+          </div>
+
+          <div className={styles.details}>
+            <p className={styles.details}>Maximum Guests: {venue.maxGuests}</p>
+            <p className={styles.details}>Rating: {venue.rating}</p>
+            <p className={styles.details}>Created: {venue.created}</p>
+            <p className={styles.details}>Updated: {venue.updated}</p>
+          </div>
+
           <div className={styles.location}>
-            <p>Location:</p>
+            <h4>Location:</h4>
             <p>Address: {venue.location.address}</p>
             <p>City: {venue.location.city}</p>
             <p>Zip: {venue.location.zip}</p>
             <p>Country: {venue.location.country}</p>
             <p>Continent: {venue.location.continent}</p>
-            <p>Latitude: {venue.location.lat}</p>
-            <p>Longitude: {venue.location.lng}</p>
           </div>
 
-          {/* Booking Details REMOVE THIS */}
-          <div className={styles.bookings}>
-            <h2>Bookings</h2>
-            <ul>
-              {venue.bookings && venue.bookings.length > 0 ? (
-                venue.bookings.map((booking) => (
-                  <li key={booking.id}>
-                    <p>Booking ID: {booking.id}</p>
-                    <p>
-                      Start Date:{" "}
-                      {moment(booking.dateFrom).format("YYYY-MM-DD")}
-                    </p>
-                    <p>
-                      End Date: {moment(booking.dateTo).format("YYYY-MM-DD")}
-                    </p>
-                    <p>Guests: {booking.guests}</p>
-                    {/* Add more booking details as needed */}
-                  </li>
-                ))
-              ) : (
-                <p>No bookings available for this venue.</p>
-              )}
-            </ul>
+          <div className={styles.price}>
+            <h3 className={styles.details}>Price: ${venue.price}</h3>
           </div>
-          <div className={styles.calendarContainer}>
-            <h2>Availability Calendar</h2>
+
+          <div className={styles.calendar_container}>
+            <h2>Available Dates:</h2>
 
             <VenueCalendar
               bookedDates={bookedDates}
@@ -152,8 +132,9 @@ const VenueDetails = ({ venueId }) => {
               dateTo={venue.dateTo}
             />
           </div>
-
-          <BookingForm venueId={venueId} />
+          <div className={styles.booking_form}>
+            <BookingForm venueId={venueId} />
+          </div>
         </>
       )}
     </div>

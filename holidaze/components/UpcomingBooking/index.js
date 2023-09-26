@@ -77,31 +77,36 @@ const UpcomingBookings = () => {
   }
 
   return (
-    <div className={styles["upcoming-bookings"]}>
-      <h2>Upcoming Bookings</h2>
-      {bookings.length > 0 ? (
-        <ul>
-          {bookings.map((booking) => (
-            <li key={booking.id}>
-              <p>Booking ID: {booking.id}</p>
-              <p>Start Date: {moment(booking.dateFrom).format("YYYY-MM-DD")}</p>
-              <p>End Date: {moment(booking.dateTo).format("YYYY-MM-DD")}</p>
-              <p>Guests: {booking.guests}</p>
-              {/* Include venue information */}
-              {booking.venue && (
-                <>
-                  <p>Venue Name: {booking.venue.name}</p>
-                  <p>Venue Address: {booking.venue.location.address}</p>
-                  {/* Add more venue details if needed */}
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No upcoming bookings found.</p>
-      )}
-    </div>
+    <>
+      <div className={styles.upcomingBookingsHeader}>
+        <h2>Upcoming Bookings</h2>
+      </div>
+      <div className={styles.upcomingBookings}>
+        {bookings.length > 0 ? (
+          <ul>
+            {bookings.map((booking) => (
+              <li key={booking.id}>
+                <p>Booking ID: {booking.id}</p>
+                <p>
+                  Start Date: {moment(booking.dateFrom).format("YYYY-MM-DD")}
+                </p>
+                <p>End Date: {moment(booking.dateTo).format("YYYY-MM-DD")}</p>
+                <p>Guests: {booking.guests}</p>
+
+                {booking.venue && (
+                  <>
+                    <p>Venue Name: {booking.venue.name}</p>
+                    <p>Venue Address: {booking.venue.location.address}</p>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No upcoming bookings found.</p>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "./VenueList.module.scss";
 import Link from "next/link";
+//import backgroundImage from "../../public/images/city-venue.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const VenuesList = ({ venues }) => {
   const defaultImageUrl =
@@ -21,7 +24,7 @@ const VenuesList = ({ venues }) => {
 
   return (
     <div className={styles.venuesPage}>
-      {/* Search input container */}
+      <h1></h1>
       <div className={styles.searchContainer}>
         <input
           type='text'
@@ -32,7 +35,6 @@ const VenuesList = ({ venues }) => {
         />
       </div>
 
-      {/* Venues grid */}
       <div className={styles.venuesList}>
         {filteredVenues.map((venue) => (
           <div key={venue.id} className={styles.card}>
@@ -47,7 +49,19 @@ const VenuesList = ({ venues }) => {
             />
             <div className={styles.cardContent}>
               <h2 className={styles.name}>{venue.name}</h2>
-              <p className={styles.rating}>Rating: {venue.rating}</p>
+              <p className={styles.rating}>
+                Rating:
+                {[...Array(Math.floor(venue.rating))].map((_, index) => (
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className={styles.star}
+                    key={index}
+                  />
+                ))}{" "}
+                {venue.rating % 1 === 0.5 && (
+                  <FontAwesomeIcon icon={faStarHalf} className={styles.star} />
+                )}
+              </p>
               {venue.location.city !== "unknown" &&
               venue.location.country !== "unknown" ? (
                 <p className={styles.location}>
@@ -55,9 +69,11 @@ const VenuesList = ({ venues }) => {
                 </p>
               ) : null}
             </div>
-            <Link href={`/venues/${venue.id}`}>
-              <button className={styles.bookButton}>Book Now</button>
-            </Link>
+            <div className={styles.button_container}>
+              <Link href={`/venues/${venue.id}`}>
+                <button className={styles.bookButton}>Book Now</button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>

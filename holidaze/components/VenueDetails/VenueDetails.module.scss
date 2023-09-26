@@ -1,54 +1,61 @@
 /* VenueDetails.module.scss */
 
 .venueDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   padding: 20px;
   background-color: #f5f5f5;
-  border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-}
-
-.name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-/* Style for each data item */
-.dataItem {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-/* Style for boolean data (e.g., wifi, parking, etc.) */
-.booleanData {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #007bff; /* Blue color for true */
-}
-
-/* Style for location data */
-.locationData {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 20px 100px;
+  justify-items: center;
 }
 
 .imageContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* Add some spacing between images */
+  gap: 10px;
+  grid-column: span 2;
 }
 
 .image {
-  width: 200px; /* Set a fixed width for all images */
-  height: 200px; /* Set a fixed height for all images */
-  object-fit: cover; /* Ensure images maintain aspect ratio and cover the space */
-  border: 1px solid #ddd; /* Add a border for styling */
-  border-radius: 5px; /* Add rounded corners */
+  max-width: 400px;
+  max-width: 400px;
+  //object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.name {
+  grid-column: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.meta {
+  grid-column: 2;
+}
+
+.description {
+  margin-bottom: 20px;
+}
+
+.details {
+}
+
+.location {
+}
+
+.price {
+  grid-column: 2;
+  margin-top: 205px;
+  text-decoration: underline;
+}
+
+.calendar_container {
+}
+
+.booking_form {
 }

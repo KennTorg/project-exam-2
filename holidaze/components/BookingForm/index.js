@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router"; // Import useRouter from next/router
 import { API_URL } from "@/utils/api/constants";
 import styles from "./BookingForm.module.scss";
 
@@ -14,6 +15,7 @@ const BookingForm = ({ venueId }) => {
   const [success, setSuccess] = useState(false);
 
   const accessToken = JSON.parse(localStorage.getItem("accessToken"));
+  const router = useRouter(); // Initialize the useRouter hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +28,11 @@ const BookingForm = ({ venueId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!accessToken) {
+      router.push("/login");
+      return;
+    }
 
     try {
       // Format the date fields in ISO 8601 format
@@ -79,7 +86,7 @@ const BookingForm = ({ venueId }) => {
 
   return (
     <div className={styles.bookingForm}>
-      <h2>Book this Venue</h2>
+      <h2>Book this Venue:</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='dateFrom'>Start Date:</label>

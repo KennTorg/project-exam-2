@@ -104,10 +104,11 @@ const ManageVenues = () => {
               <p className={styles.description}>{venue.description}</p>
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevent card click event
+                  e.stopPropagation();
                   handleDeleteVenue(venue.id);
+                  window.location.reload();
                 }}
-                className={styles.deleteButton} // Add your delete button style here
+                className={styles.deleteButton}
               >
                 Delete Venue
               </button>
