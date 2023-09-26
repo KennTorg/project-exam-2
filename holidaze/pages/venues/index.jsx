@@ -36,8 +36,7 @@ const Venues = () => {
   return (
     <Layout>
       <div>
-        <h1>Venues</h1>
-        <VenuesList venues={venues} /> {/* Use the VenuesList component */}
+        <VenuesList venues={venues} />
       </div>
     </Layout>
   );

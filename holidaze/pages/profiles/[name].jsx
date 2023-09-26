@@ -52,10 +52,8 @@ const UserProfile = () => {
 
   return (
     <Layout>
-      <div>
-        <h1>Profile Page</h1>
+      <>
         <div>
-          <h2>Your Profile</h2>
           {userProfile ? (
             <ProfileCard
               userData={userProfile}
@@ -68,7 +66,7 @@ const UserProfile = () => {
         <div>
           <UpcomingBookings customerId={name} />
         </div>
-      </div>
+      </>
     </Layout>
   );
 };
