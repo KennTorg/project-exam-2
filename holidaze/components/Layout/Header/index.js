@@ -23,7 +23,7 @@ const Header = () => {
       {/* Add links to login, register, and profile pages */}
       <nav>
         <Link href='/venues'>Venues</Link>
-        <Link href='/login'>Login</Link>
+        <Link href='/about'>About</Link>
         <Link href='/register'>Register</Link>
         {user ? (
           <>
@@ -38,7 +38,12 @@ const Header = () => {
           <Link href='/profiles'>Profile</Link>
         )}
       </nav>
-      <Logout />
+      <div>
+        <a href='/login' className={styles.login_btn}>
+          Login
+        </a>
+        <Logout />
+      </div>
     </header>
   );
 };

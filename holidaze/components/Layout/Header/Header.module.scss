@@ -1,23 +1,23 @@
 .header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 1rem;
+  position: sticky;
+  background-color: #f6f6f6;
+  color: #000;
   text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  /* Style for the navigation links */
   nav {
     a {
-      color: #fff; /* Link text color */
-      text-decoration: none; /* Remove underlines */
-      margin: 0 1rem; /* Spacing between links */
-      font-weight: bold; /* Make the text bold */
-      transition: color 0.3s ease; /* Smooth color transition on hover */
+      color: #000;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
 
       &:hover {
-        color: #e5e5e5; /* Change color on hover */
+        color: darkgray;
       }
     }
   }
@@ -28,8 +28,18 @@
 }
 
 .logo {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
+}
+
+.login_btn {
+  background-color: green;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
 }
