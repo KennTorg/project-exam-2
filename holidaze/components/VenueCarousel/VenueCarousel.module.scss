@@ -1,0 +1,19 @@
+/* VenueCarousel.module.scss */
+.carouselItem {
+  position: relative;
+}
+
+.imageContainer img {
+  width: 100%;
+}
+
+.locationText {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
