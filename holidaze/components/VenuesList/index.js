@@ -3,7 +3,7 @@ import styles from "./VenueList.module.scss";
 import Link from "next/link";
 //import backgroundImage from "../../public/images/city-venue.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 
 const VenuesList = ({ venues }) => {
   const defaultImageUrl =
