@@ -122,21 +122,20 @@ const VenueDetails = ({ venueId }) => {
           <div className={styles.price}>
             <h3 className={styles.details}>Price: ${venue.price}</h3>
           </div>
-
-          <div className={styles.calendar_container}>
-            <h2>Available Dates:</h2>
-
-            <VenueCalendar
-              bookedDates={bookedDates}
-              dateFrom={venue.dateFrom}
-              dateTo={venue.dateTo}
-            />
-          </div>
-          <div className={styles.booking_form}>
-            <BookingForm venueId={venueId} />
-          </div>
         </>
       )}
+      <div className={styles.calendar_container}>
+        <h2>Available Dates:</h2>
+
+        <VenueCalendar
+          bookedDates={bookedDates}
+          dateFrom={venue.dateFrom}
+          dateTo={venue.dateTo}
+        />
+      </div>
+      <div className={styles.booking_form}>
+        <BookingForm venueId={venueId} />
+      </div>
     </div>
   );
 };
