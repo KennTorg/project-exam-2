@@ -37,7 +37,6 @@ const UserProfile = () => {
     if (name) {
       fetchUserProfileData();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   const handleAvatarChange = async (newAvatarUrl) => {
