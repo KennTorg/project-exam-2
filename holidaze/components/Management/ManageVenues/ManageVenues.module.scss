@@ -100,12 +100,38 @@
     font-size: 14px;
   }
 
+  .createButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+
+  .updateButton {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0073a0;
+    }
+  }
+
   .deleteButton {
     background-color: #f44336;
     color: #ffffff;
-    padding: 8px 16px;
-    margin-top: 30px;
-    width: 50%;
+    padding: 10px 20px;
+    margin-top: 10px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
