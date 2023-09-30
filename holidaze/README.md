@@ -115,9 +115,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
       <th>Repository</th>
       <td><a href="https://github.com/KennTorg/project-exam-2">Github Project Repository</a></td>
     </tr>
-    <tr>
-      <th>Hosted Demo</th>
-      <td><a href="https://sp2-auction.netlify.app/">Netlify Link</a></td>
-    </tr>
+    
   </tbody>
 </table>
