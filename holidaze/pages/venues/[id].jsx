@@ -1,3 +1,4 @@
+import React from "react";
 import { useRouter } from "next/router";
 import VenueDetails from "@/components/VenueDetails";
 import Layout from "@/components/Layout";
