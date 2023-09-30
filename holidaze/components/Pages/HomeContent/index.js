@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import styles from "@/styles/pages/Home.module.scss";
 import { API_URL } from "@/utils/api/constants";

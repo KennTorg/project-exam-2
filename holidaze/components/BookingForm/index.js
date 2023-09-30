@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router"; // Import useRouter from next/router
 import PropTypes from "prop-types";
 import { API_URL } from "@/utils/api/constants";
