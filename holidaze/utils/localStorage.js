@@ -1,5 +1,3 @@
-// localStorage.js
-
 /**
  * Saves the data to local storage.
  * @param {string} key - The key to store the data under.

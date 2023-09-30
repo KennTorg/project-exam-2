@@ -1,5 +1,3 @@
-// deleteVenue.js
-
 import { API_URL } from "@/utils/api/constants";
 
 const deleteVenue = async (
@@ -25,7 +23,7 @@ const deleteVenue = async (
     const response = await fetch(`${API_URL}/venues/${venueId}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${accessToken}`, // Include the token in the Authorization header
+        Authorization: `Bearer ${accessToken}`,
       },
     });
 

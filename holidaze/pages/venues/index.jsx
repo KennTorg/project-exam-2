@@ -1,7 +1,7 @@
 // pages/venues/index.jsx
 import React, { useEffect, useState } from "react";
 import { API_URL } from "@/utils/api/constants";
-import VenuesList from "@/components/VenuesList"; // Import the VenuesList component
+import VenuesList from "@/components/VenuesList";
 import Layout from "@/components/Layout";
 import Loader from "@/components/Loader";
 
