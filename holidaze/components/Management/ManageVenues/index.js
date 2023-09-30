@@ -96,7 +96,7 @@ const ManageVenues = () => {
 
       <div className={styles.createdVenue}>
         <div className={styles.createVenueCard}>
-          <img src='/images/no-image-icon-23492.png' />
+          <img src='/images/no-image-icon-23492.png' alt='no image' />
           <div className={styles.createVenueCardContent}>
             <h2>Create new venue</h2>
             <button onClick={openCreateModal} className={styles.createButton}>
@@ -138,7 +138,6 @@ const ManageVenues = () => {
                   e.stopPropagation();
                   handleUpdateVenue(venue);
                 }}
-                className={styles.updateButton}
               >
                 Update Venue
               </button>
