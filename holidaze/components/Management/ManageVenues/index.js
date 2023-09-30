@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import fetchOwnedVenues from "@/utils/api/fetchManagerVenues";
 import styles from "./ManageVenues.module.scss";
-import { API_URL } from "@/utils/api/constants";
 import deleteVenue from "@/utils/api/deleteVenue";
 import CreateVenueModal from "@/components/modals/CreateVenueModal";
 import UpdateVenueModal from "@/components/modals/UpdateVenueModal";
+import fetchVenueDetails from "@/utils/api/fetchVenueDetails";
 
 const ManageVenues = () => {
   const [ownedVenues, setOwnedVenues] = useState([]);
@@ -72,20 +72,42 @@ const ManageVenues = () => {
     setUpdateModalOpen(true);
   };
 
+  const handleCardClick = async (venue) => {
+    // Fetch the details, including bookings, for the selected venue
+    const venueDetails = await fetchVenueDetails(venue.id);
+
+    if (venueDetails) {
+      setSelectedVenue(venueDetails);
+    } else {
+      // Handle the case where the fetch failed.
+      console.error("Failed to fetch venue details.");
+    }
+  };
+
   return (
     <div className={styles.manageVenues}>
-      <h1>Manage Your Venues</h1>
-      <div className={styles.formContainer}>
-        <button onClick={openCreateModal}>Create Venue</button>
-        <CreateVenueModal
-          isOpen={isCreateModalOpen}
-          onRequestClose={closeCreateModal}
-        />
-      </div>
+      <h1>Manage Venues</h1>
+      <div className={styles.formContainer}></div>
 
       <div className={styles.createdVenue}>
+        <div className={styles.createVenueCard}>
+          <img src='/images/no-image-icon-23492.png' />
+          <div className={styles.createVenueCardContent}>
+            <h2>Create new venue</h2>
+            <button onClick={openCreateModal}>Create Venue</button>
+            <CreateVenueModal
+              isOpen={isCreateModalOpen}
+              onRequestClose={closeCreateModal}
+            />
+          </div>
+        </div>
+
         {ownedVenues.map((venue) => (
-          <div key={venue.id} className={styles.venueCard}>
+          <div
+            key={venue.id}
+            className={styles.venueCard}
+            onClick={() => handleCardClick(venue)}
+          >
             <div className={styles.imageContainer}>
               {venue.media.map((imageUrl, index) => (
                 <img
@@ -99,6 +121,7 @@ const ManageVenues = () => {
                 />
               ))}
             </div>
+
             <div className={styles.cardContent}>
               <h2 className={styles.name}>{venue.name}</h2>
 
@@ -125,7 +148,7 @@ const ManageVenues = () => {
           </div>
         ))}
       </div>
-      <div className={styles.bookingsContainer}></div>
+
       {isUpdateModalOpen && (
         <UpdateVenueModal
           isOpen={isUpdateModalOpen}
@@ -133,6 +156,23 @@ const ManageVenues = () => {
           venueData={selectedVenue}
         />
       )}
+
+      <div className={styles.bookingsContainer}>
+        {selectedVenue.bookings && selectedVenue.bookings.length > 0 && (
+          <div>
+            <h3>Bookings for {selectedVenue.name}</h3>
+            <ul>
+              {selectedVenue.bookings.map((booking) => (
+                <li key={booking.id}>
+                  Booking ID: {booking.id}, Date From: {booking.dateFrom}, Date
+                  To: {booking.dateTo}, Guests: {booking.guests}, Created:{" "}
+                  {booking.created}, Updated: {booking.updated}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

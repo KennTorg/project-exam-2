@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { API_URL } from "@/utils/api/constants";
 import Loader from "@/components/Loader";
 import VenueCarousel from "@/components/VenueCarousel";
+import Link from "next/link";
+import UserProfile from "@/components/UserProfile";
 
 const HomeContent = () => {
   const [venues, setVenues] = useState([]);
@@ -35,39 +37,47 @@ const HomeContent = () => {
 
   return (
     <div className={styles.home_container}>
-      <img
-        src='https://cdn.pixabay.com/photo/2016/11/22/19/17/buildings-1850129_1280.jpg'
-        alt='Cityscape'
-      />
-      <div className={styles.home_boxes}>
-        <div className={styles.home_box}>
-          <h4>Where Dreams Find a Home</h4>
-          <p>
-            {" "}
-            Embark on a journey to the most enchanting destinations, where azure
-            waters meet golden sands and lush landscapes beckon. Your dream
-            holiday is just a click away with Holidaze.
-          </p>
-        </div>
-        <div className={styles.home_box}>
-          <h4>Your Holiday Oasis Awaits</h4>
-          <p>
-            Imagine a world where relaxation knows no bounds, and adventure is
-            around every corner. With Holidaze, you can escape to your own
-            holiday oasis, where paradise becomes your reality.
-          </p>
-        </div>
-        <div className={styles.home_box}>
-          <h4>Where Dreams Find a Home</h4>
-          <p>
-            {" "}
-            In the heart of every great vacation is the perfect place to stay.
-            Discover our handpicked venues and create memories that will stay
-            with you forever.
-          </p>
-        </div>
+      <div className={styles.headerImageContainer}>
+        <UserProfile />
+        <img
+          className={`${styles.headerImage} zoom`}
+          src='https://cdn.pixabay.com/photo/2016/11/22/19/17/buildings-1850129_1280.jpg'
+          alt='Cityscape'
+        />
       </div>
-      <VenueCarousel venues={venues} />
+      <div className={styles.home_boxes}>
+        <Link href='/venues'>
+          <div className={styles.home_box1}>
+            <h4>The Journey Awaits</h4>
+            <p>
+              {" "}
+              Embark on a journey to the most enchanting destinations, where
+              azure waters meet golden sands
+            </p>
+          </div>
+        </Link>
+        <Link href='/venues'>
+          <div className={styles.home_box2}>
+            <h4>Your Holiday Oasis Awaits</h4>
+            <p>
+              Imagine a world where relaxation knows no bounds, and adventure is
+              around every corner. With Holidaze
+            </p>
+          </div>
+        </Link>
+        <Link href='/venues'>
+          <div className={styles.home_box3}>
+            <h4>Where Dreams Find a Home</h4>
+            <p>
+              {" "}
+              In the heart of every great vacation is the perfect place to stay.
+            </p>
+          </div>
+        </Link>
+      </div>
+      <div className={styles.carouselWrapper}>
+        <VenueCarousel venues={venues} />
+      </div>
     </div>
   );
 };

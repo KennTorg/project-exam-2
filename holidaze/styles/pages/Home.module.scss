@@ -1,26 +1,104 @@
-.home_container img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
+// .home_container img {
+//   width: 100%;
+//   height: 400px;
+//   object-fit: cover;
+// }
 
 .home_boxes {
   display: flex;
-  background-color: lightgray;
+  flex-wrap: wrap;
   height: 300px;
   align-items: center;
   gap: 2rem;
   padding: 1rem;
+  margin: 10rem 0 10rem;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    .home_boxes {
+      margin: 3rem 0; /* Adjust margin to give space to the boxes */
+      padding: 1rem 2rem; /* Adjust padding for smaller screens */
+    }
+  }
 }
 
-.home_box {
-  background-color: #fff;
+.home_boxes a {
+  text-decoration: none;
+}
+
+.home_box1,
+.home_box2,
+.home_box3 {
+  color: #fff;
   height: 12rem;
   padding: 1rem;
-  width: fit-content;
+  width: 250px;
   border-radius: 25px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.home_box h4 {
-  text-align: center;
+.home_box1 {
+  background-image: url("https://images.pexels.com/photos/1707823/pexels-photo-1707823.jpeg?auto=compress&cs=tinysrgb&w=400");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: background-size 0.3s ease-in-out;
+
+  &:hover {
+    background-size: 110%;
+  }
+}
+
+.home_box2 {
+  background-image: url("https://images.pexels.com/photos/3617496/pexels-photo-3617496.jpeg?auto=compress&cs=tinysrgb&w=400");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: background-size 0.3s ease-in-out;
+
+  &:hover {
+    background-size: 110%;
+  }
+}
+
+.home_box3 {
+  background-image: url("https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=400");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: background-size 0.3s ease-in-out;
+
+  &:hover {
+    background-size: 110%;
+  }
+}
+
+.home_box1 .box-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.headerImageContainer {
+  overflow: hidden;
+}
+
+.headerImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  animation: zoom 40s linear infinite;
+
+  @keyframes zoom {
+    50% {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.carouselWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
 }

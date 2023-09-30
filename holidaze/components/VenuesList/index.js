@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./VenueList.module.scss";
 import Link from "next/link";
-//import backgroundImage from "../../public/images/city-venue.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,7 +23,9 @@ const VenuesList = ({ venues }) => {
 
   return (
     <div className={styles.venuesPage}>
-      <h1></h1>
+      <div className={styles.headerVenues}>
+        <h1>Book your dream today</h1>
+      </div>
       <div className={styles.searchContainer}>
         <input
           type='text'

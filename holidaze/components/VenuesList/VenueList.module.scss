@@ -1,5 +1,12 @@
 /* VenuesList.module.scss */
 
+.headerVenues h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .venuesList {
   display: flex;
   flex-wrap: wrap;
@@ -18,6 +25,7 @@
   display: flex;
   flex-direction: column;
   //max-height: 450px;
+  background-color: #fff;
 
   &:hover {
     transform: translateY(-4px);
@@ -61,7 +69,7 @@
   margin: 5px;
 
   .bookButton {
-    background-color: #007bff;
+    background-color: #01032d;
     color: #fff;
     padding: 8px 16px;
     text-decoration: none;
@@ -84,9 +92,20 @@
 
 .searchInput {
   width: 40%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 18px;
   outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.searchInput::placeholder {
+  color: #999;
+}
+
+.searchInput:focus {
+  border: 1px solid #01032d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

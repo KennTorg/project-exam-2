@@ -103,7 +103,7 @@ const UpcomingBookings = () => {
             ))}
           </ul>
         ) : (
-          <p>No upcoming bookings found.</p>
+          <p>You have no upcoming bookings.</p>
         )}
       </div>
     </>
