@@ -1,0 +1,64 @@
+/* CreateVenue.module.scss */
+
+.createVenue {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.createVenue h1 {
+  grid-column: 1;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.createVenue form {
+  display: flex;
+  flex-direction: column;
+}
+
+.createVenue label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.createVenue img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.createVenue input[type="text"],
+.createVenue input[type="number"],
+.createVenue textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.createVenue textarea {
+  resize: vertical;
+}
+
+.createVenue button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.createVenue button:hover {
+  background-color: #0056b3;
+}

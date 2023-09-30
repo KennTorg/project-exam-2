@@ -1,0 +1,34 @@
+/* UpcomingBookings.module.scss */
+
+.upcomingBookings {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+
+    flex: 1;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.upcomingBookingsHeader {
+  h2 {
+    text-align: center;
+  }
+}
