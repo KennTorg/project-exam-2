@@ -1,0 +1,290 @@
+[33mcommit 918c51b3c925d0a48cb6626a9260dae8c305e175[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 22:09:03 2023 +0200
+
+    readme
+
+[33mcommit 0ceeaf732b412892223ad3e8645043f0b05ca504[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 22:03:05 2023 +0200
+
+    removed about
+
+[33mcommit 5eab5b03705e1b45fa3a8ed77f94a30923ccd4d7[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:44:48 2023 +0200
+
+    warni
+
+[33mcommit 6e4159d94442ea1bff333b69eb43d3383efcd3e6[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:41:26 2023 +0200
+
+    update
+
+[33mcommit a0f3710420e4155b4b182cf4afde2a51b4ee78f5[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:34:19 2023 +0200
+
+    package update
+
+[33mcommit d0345dbb3326d2a15b5f542d7e4a5059c49d675f[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:27:26 2023 +0200
+
+    fix
+
+[33mcommit 8166860427c804dde7a7aa2598a549a2934660b0[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:23:50 2023 +0200
+
+    fix
+
+[33mcommit 983ffd50948c346bbcd8e1c9ab5c2b2edaebaa47[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:18:58 2023 +0200
+
+    error fixes
+
+[33mcommit 3772dd729d7fa834f34dc641729ad0b6b4caf873[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 21:09:08 2023 +0200
+
+    package update
+
+[33mcommit 8d923034d1a5bf9c5ce8a43073123ad816d9c419[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 20:53:36 2023 +0200
+
+    package update
+
+[33mcommit 27b9e00f276d285dc73b7febaa72123a515d4734[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 20:47:38 2023 +0200
+
+    package update
+
+[33mcommit 09a07c2dd8bd6381e142a5c138cb70b5a3851a1b[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 20:02:32 2023 +0200
+
+    readme
+
+[33mcommit 4d4b0f99fa8da6b28a42f1d24acd86aca9e1fc17[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 19:58:26 2023 +0200
+
+    some changes and added README
+
+[33mcommit edff48926666e22b45a78e06e9a1c5e8eb0a9c49[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 19:43:42 2023 +0200
+
+    added jsdocs proptypes and cleaned up some
+
+[33mcommit b1976ce67835e39d9afbc52e8c801d81095dc4e2[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 18:13:15 2023 +0200
+
+    test
+
+[33mcommit f8ef351f139f17a60bb177978342e47c345b77d7[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 18:13:06 2023 +0200
+
+    Styling changes
+
+[33mcommit 428af6cbe86e724d2d1c4919b8c41ca7273ba0d2[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 18:11:07 2023 +0200
+
+    JSX
+
+[33mcommit c2b384c1f68e172951c73109a8ed6cde1f66b4aa[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 18:10:34 2023 +0200
+
+    alternative logo
+
+[33mcommit 5c53c5bccf6c94fc7741915a70b035b2e9200834[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sat Sep 30 18:10:02 2023 +0200
+
+    package update
+
+[33mcommit 91ae0952d54fb7ca0983da3d1bd6356cf44583ed[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 28 22:47:43 2023 +0200
+
+    converting to form modals
+
+[33mcommit 31ad26af0d4151a07234a12a006949582a00e96e[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 28 22:47:30 2023 +0200
+
+    styling changes
+
+[33mcommit c9dff9c1b428d89dee1eb70d14371f6079996832[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 28 22:45:43 2023 +0200
+
+    modal installed
+
+[33mcommit 82ce8c6afc236147649c02b04d855503b0c4ffb9[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:25:19 2023 +0200
+
+    styling changes
+
+[33mcommit 86ba4085a887ecb9050b487d8c751de933f0c30c[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:25:00 2023 +0200
+
+    page changes
+
+[33mcommit 67bf867ade060c2d39cbf2860d5ee6e924916a72[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:24:21 2023 +0200
+
+    img/vid
+
+[33mcommit 92ad3863c578229320660c9995f5a2602046ccfb[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:23:45 2023 +0200
+
+    layout changes
+
+[33mcommit 68d7cd854d7f8bac630f95b4520c2ab3ae43a214[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:21:53 2023 +0200
+
+    venue carousel
+
+[33mcommit fab16851df3a25e812a5e31947e136188c3c13d6[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 26 22:20:01 2023 +0200
+
+    package update
+
+[33mcommit 64b521611bf8295d4fd08f2412432465c46450f1[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 21 19:42:06 2023 +0200
+
+    Added 404 page
+
+[33mcommit 2724fc73a13fc5c9a1d2155a089a235fe5206e3c[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 19 16:58:30 2023 +0200
+
+    Folder cleanup
+
+[33mcommit b2c3aa64ac5f2151fdce515decb0217f89e41c75[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 19 16:58:14 2023 +0200
+
+    Added loader
+
+[33mcommit 03fd53ea6ad421edd18b6be655062e17f5ec6df5[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 19 16:57:26 2023 +0200
+
+    Calendar fix
+
+[33mcommit f9f905b671f7a6e5c0a0a027acf18f1a7abbbff1[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:23:27 2023 +0200
+
+    update venue management
+
+[33mcommit 9b96f0fadd55a934c4c578bf399f24e99c17f5ca[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:23:12 2023 +0200
+
+    create venue
+
+[33mcommit a2b57f9991d23088733832d88ef91d84f7e571b7[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:23:02 2023 +0200
+
+    calender
+
+[33mcommit d9744147ab9238794490d89bb6b3f6e44023ef81[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:22:26 2023 +0200
+
+    minor changes
+
+[33mcommit 218f9a2e16e69454f6e5255dadf0425e0336d6f2[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:21:37 2023 +0200
+
+    upgraded index and app
+
+[33mcommit 1e65f64703759a0f367bf4cbe6e97b071212332c[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:21:10 2023 +0200
+
+    delete venues
+
+[33mcommit 46760894c76601a1451072ff09e5dd2e802d61a1[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:20:55 2023 +0200
+
+    added venue context
+
+[33mcommit 2a789b5dc4e705ee86b332759ca88574f19a3b0d[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Sun Sep 17 23:20:38 2023 +0200
+
+    Update venues
+
+[33mcommit 86d89d87bd4fdb80622bf1cf79e36af173463ab1[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 14 22:57:49 2023 +0200
+
+    component UpdateVenue
+
+[33mcommit 5ae9c71e05b4f3b0bc67758c69af136336e88e71[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 14 22:57:39 2023 +0200
+
+    component CreateVenue
+
+[33mcommit ed32f9bf358e6cd1024038762ddfca58cab2065c[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Thu Sep 14 22:57:06 2023 +0200
+
+    package updates
+
+[33mcommit 4d77f53d9ee087850e0f065b3b77946bd095a8eb[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Wed Sep 13 22:14:47 2023 +0200
+
+    added venue management link if set to true
+
+[33mcommit ac33c8456468270a89f3e7340aa96106df34e14e[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Wed Sep 13 22:14:09 2023 +0200
+
+    fixed upcoming booking
+
+[33mcommit 3aa8b8a4d451a6428772ec00db28ccc0c261264c[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 12 23:50:02 2023 +0200
+
+    updated profiles
+
+[33mcommit d4a9214dde7d3ee95d4315dac04e4606ade6c836[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 12 23:49:46 2023 +0200
+
+    component upcomingbooking
+
+[33mcommit 7581632b74026ad0a67725f27fce936221756f55[m
+Author: Kenn Torg <kennettorgersenmail@gmail.com>
+Date:   Tue Sep 12 23:49:36 2023 +0200
+
+    component bookingform
+
+[33mcommit c46b73ca34cebca565c67ff318901d7d8a16d358[m
+Author: Kenn Torg <kennettorge
