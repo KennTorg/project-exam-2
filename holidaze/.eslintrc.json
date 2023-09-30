@@ -1,10 +1,14 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "extends": ["next"],
   "rules": {
     "@next/next/no-img-element": "off"
   }
+=======
+  "extends": ["next/babel", "next/core-web-vitals"]
+>>>>>>> parent of 3772dd7 (package update)
 =======
   "extends": ["next/babel", "next/core-web-vitals"]
 >>>>>>> parent of 3772dd7 (package update)

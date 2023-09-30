@@ -17,6 +17,7 @@
     "babel": "^6.23.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "eslint": "^8.50.0",
 =======
     "eslint": "8.48.0",
@@ -28,6 +29,9 @@
 >>>>>>> parent of 8d92303 (package update)
 =======
 >>>>>>> parent of 27b9e00 (package update)
+=======
+    "eslint": "^8.50.0",
+>>>>>>> parent of 3772dd7 (package update)
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "next": "13.4.19",
@@ -55,9 +59,13 @@
     "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.7.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 27b9e00 (package update)
 =======
 >>>>>>> parent of 27b9e00 (package update)
+=======
+    "eslint-config-next": "^13.5.3",
+>>>>>>> parent of 3772dd7 (package update)
     "fetch-mock": "^9.11.0",
     "jest": "^29.6.4"
   }
