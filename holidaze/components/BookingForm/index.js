@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router"; // Import useRouter from next/router
+import PropTypes from "prop-types";
 import { API_URL } from "@/utils/api/constants";
 import styles from "./BookingForm.module.scss";
+import { toast } from "react-toastify";
 
+/**
+ * BookingForm component for booking a venue.
+ * @param {Object} props - The component's properties.
+ * @param {number} props.venueId - The ID of the venue to book.
+ * @returns {JSX.Element} The BookingForm component.
+ */
 const BookingForm = ({ venueId }) => {
   const [formData, setFormData] = useState({
     dateFrom: "",
@@ -11,8 +19,6 @@ const BookingForm = ({ venueId }) => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
 
   const accessToken = JSON.parse(localStorage.getItem("accessToken"));
   const router = useRouter(); // Initialize the useRouter hook
@@ -60,8 +66,7 @@ const BookingForm = ({ venueId }) => {
         });
 
         if (response.ok) {
-          setSuccess(true);
-          setError(null);
+          toast.success("Booking successful!");
           // Resets the form
           setFormData({
             dateFrom: "",
@@ -69,16 +74,13 @@ const BookingForm = ({ venueId }) => {
             guests: 1,
           });
         } else {
-          setSuccess(false);
-          setError("Booking failed. Please try again later.");
+          toast.error("Booking failed. Please try again later.");
         }
       } else {
-        setSuccess(false);
-        setError("Guests must be a valid number.");
+        toast.error("Guests must be a valid number.");
       }
     } catch (error) {
-      setSuccess(false);
-      setError("An error occurred. Please try again later.");
+      toast.error("An error occurred. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -126,10 +128,12 @@ const BookingForm = ({ venueId }) => {
           {loading ? "Booking..." : "Book Now"}
         </button>
       </form>
-      {error && <p className='error'>{error}</p>}
-      {success && <p className='success'>Booking successful!</p>}
     </div>
   );
+};
+
+BookingForm.propTypes = {
+  venueId: PropTypes.string.isRequired,
 };
 
 export default BookingForm;

@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { API_URL } from "@/utils/api/constants";
 import { useRouter } from "next/router";
 import { saveToLocalStorage, loadFromLocalStorage } from "@/utils/localStorage";
 import styles from "./UpcomingBooking.module.scss";
 import Loader from "../Loader";
+import { toast } from "react-toastify";
 
+/**
+ * UpcomingBookings component to display upcoming bookings for a customer.
+ *
+ * @component
+ */
 const UpcomingBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -52,9 +59,11 @@ const UpcomingBookings = () => {
           setBookings(bookingData);
         } else {
           setError("Failed to fetch upcoming bookings");
+          toast.error("Failed to fetch upcoming bookings");
         }
       } catch (error) {
         setError("An error occurred while fetching upcoming bookings");
+        toast.error("An error occurred while fetching upcoming bookings");
       } finally {
         setLoading(false);
       }
@@ -108,6 +117,16 @@ const UpcomingBookings = () => {
       </div>
     </>
   );
+};
+
+// Prop type validation
+UpcomingBookings.propTypes = {
+  userData: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    venueManager: PropTypes.bool.isRequired,
+  }),
 };
 
 export default UpcomingBookings;

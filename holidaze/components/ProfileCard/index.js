@@ -1,14 +1,33 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./ProfileCard.module.scss";
 import Loader from "../Loader";
+import { toast } from "react-toastify";
 
+/**
+ * ProfileCard component for displaying user profile information.
+ *
+ * @component
+ * @param {Object} userData - User data object.
+ * @param {function} onAvatarChange - Function to handle avatar changes.
+ */
 const ProfileCard = ({ userData, onAvatarChange }) => {
   const [newAvatarUrl, setNewAvatarUrl] = useState("");
 
+  /**
+   * Handles the submission of a new avatar URL.
+   *
+   * @param {Object} e - Event object.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAvatarChange(newAvatarUrl);
-    setNewAvatarUrl("");
+    if (newAvatarUrl) {
+      onAvatarChange(newAvatarUrl);
+      toast.success("Avatar changed successfully");
+      setNewAvatarUrl("");
+    } else {
+      toast.error("Please provide a valid avatar URL");
+    }
   };
 
   return (
@@ -44,6 +63,17 @@ const ProfileCard = ({ userData, onAvatarChange }) => {
       )}
     </div>
   );
+};
+
+// Prop type validation
+ProfileCard.propTypes = {
+  userData: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    venueManager: PropTypes.bool.isRequired,
+  }),
+  onAvatarChange: PropTypes.func.isRequired,
 };
 
 export default ProfileCard;

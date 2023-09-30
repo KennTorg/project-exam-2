@@ -1,13 +1,14 @@
-.button {
+.logoutButton {
   background-color: #f44336;
   color: white;
   padding: 10px 20px;
+  margin: 20px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
-}
+  transition: background-color 0.2s;
 
-/* Style for the button when hovered */
-.button:hover {
-  background-color: #d32f2f;
+  &:hover {
+    background-color: #d32f2f;
+  }
 }

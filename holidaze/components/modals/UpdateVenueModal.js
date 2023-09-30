@@ -7,9 +7,6 @@ const UpdateVenueModal = ({
   isOpen,
   onRequestClose,
   venueData,
-  handleInputChange,
-  handleNumberInputChange,
-  handleLocationInputChange,
   handleCheckboxChange,
 }) => {
   const handleSubmit = async (e) => {
@@ -62,8 +59,7 @@ const UpdateVenueModal = ({
             <input
               type='text'
               name='media'
-              value={venueData.media}
-              onChange={handleInputChange}
+              defaultValue={venueData.media}
               placeholder='Media URLs (comma-separated)'
               required
             />
@@ -83,8 +79,7 @@ const UpdateVenueModal = ({
             <input
               type='text'
               name='name'
-              value={venueData.name}
-              onChange={handleInputChange}
+              defaultValue={venueData.name}
               placeholder='Venue Name'
               required
             />
@@ -92,8 +87,7 @@ const UpdateVenueModal = ({
             <input
               type='number'
               name='maxGuests'
-              value={venueData.maxGuests}
-              onChange={handleNumberInputChange}
+              defaultValue={venueData.maxGuests}
               placeholder='Max Guests'
               required
               min='1'
@@ -101,8 +95,7 @@ const UpdateVenueModal = ({
 
             <textarea
               name='description'
-              value={venueData.description}
-              onChange={handleInputChange}
+              defaultValue={venueData.description}
               placeholder='Venue Description'
               rows='4'
               required
@@ -111,8 +104,7 @@ const UpdateVenueModal = ({
             <input
               type='number'
               name='price'
-              value={venueData.price}
-              onChange={handleNumberInputChange}
+              defaultValue={venueData.price}
               placeholder='Price'
               required
             />
@@ -120,32 +112,28 @@ const UpdateVenueModal = ({
             <input
               type='text'
               name='address'
-              value={venueData.location.address}
-              onChange={handleLocationInputChange}
+              defaultValue={venueData.location.address}
               placeholder='Address'
             />
 
             <input
               type='text'
               name='city'
-              value={venueData.location.city}
-              onChange={handleLocationInputChange}
+              defaultValue={venueData.location.city}
               placeholder='City'
             />
 
             <input
               type='text'
               name='zip'
-              value={venueData.location.zip}
-              onChange={handleLocationInputChange}
+              defaultValue={venueData.location.zip}
               placeholder='ZIP Code'
             />
 
             <input
               type='text'
               name='country'
-              value={venueData.location.country}
-              onChange={handleLocationInputChange}
+              defaultValue={venueData.location.country}
               placeholder='Country'
             />
 
@@ -154,7 +142,7 @@ const UpdateVenueModal = ({
                 type='checkbox'
                 name='wifi'
                 checked={venueData.meta.wifi}
-                onChange={handleCheckboxChange}
+                onChange={() => handleCheckboxChange("wifi")}
               />
               Wi-Fi
             </label>
@@ -164,7 +152,7 @@ const UpdateVenueModal = ({
                 type='checkbox'
                 name='parking'
                 checked={venueData.meta.parking}
-                onChange={handleCheckboxChange}
+                onChange={() => handleCheckboxChange("parking")}
               />
               Parking
             </label>
@@ -174,7 +162,7 @@ const UpdateVenueModal = ({
                 type='checkbox'
                 name='breakfast'
                 checked={venueData.meta.breakfast}
-                onChange={handleCheckboxChange}
+                onChange={() => handleCheckboxChange("breakfast")}
               />
               Breakfast
             </label>
@@ -184,7 +172,7 @@ const UpdateVenueModal = ({
                 type='checkbox'
                 name='pets'
                 checked={venueData.meta.pets}
-                onChange={handleCheckboxChange}
+                onChange={() => handleCheckboxChange("pets")}
               />
               Pets Allowed
             </label>

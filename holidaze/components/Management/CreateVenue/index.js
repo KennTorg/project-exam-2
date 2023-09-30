@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { API_URL } from "@/utils/api/constants";
 import styles from "./CreateVenue.module.scss";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
+/**
+ * CreateVenue component for adding a new venue.
+ */
 const CreateVenue = () => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    media: [], // Media URLs will be stored in an array
+    media: [],
     price: 0,
     maxGuests: 0,
     rating: 0,
@@ -28,11 +33,14 @@ const CreateVenue = () => {
 
   const router = useRouter();
 
+  /**
+   * Handles changes in input fields.
+   * @param {Event} e - The input field change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "media") {
-      // Split the input value into an array of media URLs
       const mediaArray = value.split(",").map((url) => url.trim());
       setFormData({
         ...formData,
@@ -46,6 +54,10 @@ const CreateVenue = () => {
     }
   };
 
+  /**
+   * Handles changes in location-related input fields.
+   * @param {Event} e - The input field change event.
+   */
   const handleLocationInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -57,6 +69,10 @@ const CreateVenue = () => {
     });
   };
 
+  /**
+   * Handles changes in number input fields.
+   * @param {Event} e - The input field change event.
+   */
   const handleNumberInputChange = (e) => {
     const { name, value } = e.target;
     const parsedValue = isNaN(parseFloat(value)) ? 0 : parseFloat(value);
@@ -66,6 +82,10 @@ const CreateVenue = () => {
     });
   };
 
+  /**
+   * Handles changes in checkbox input fields.
+   * @param {Event} e - The input field change event.
+   */
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setFormData({
@@ -77,6 +97,11 @@ const CreateVenue = () => {
     });
   };
 
+  /**
+   * Handles form submission, creating a new venue.
+   * Displays a toast message on success or error.
+   * @param {Event} e - The form submission event.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -98,12 +123,20 @@ const CreateVenue = () => {
       });
 
       if (response.ok) {
-        alert("You've created a venue");
+        toast.success("Venue created successfully!", {
+          position: "bottom-right",
+        });
         window.location.reload();
       } else {
+        toast.error("Failed to create venue. Please try again later.", {
+          position: "bottom-right",
+        });
         console.error("Failed to create venue:", response.statusText);
       }
     } catch (error) {
+      toast.error("An error occurred. Please try again later.", {
+        position: "bottom-right",
+      });
       console.error("Error creating venue:", error);
     }
   };
@@ -112,7 +145,6 @@ const CreateVenue = () => {
     <div className={styles.createVenue}>
       <h1>Create Venue</h1>
       <form onSubmit={handleSubmit}>
-        {/* Add an input field for the media URLs */}
         <input
           type='text'
           name='media'
@@ -121,7 +153,6 @@ const CreateVenue = () => {
           placeholder='Media URLs (comma-separated)'
           required
         />
-        {/* Display the media images */}
         <div>
           <h3>Media Images:</h3>
           {formData.media.length > 0 &&
@@ -248,6 +279,31 @@ const CreateVenue = () => {
       </form>
     </div>
   );
+};
+
+// PropTypes
+CreateVenue.propTypes = {
+  formData: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    media: PropTypes.arrayOf(PropTypes.string),
+    price: PropTypes.number,
+    maxGuests: PropTypes.number,
+    rating: PropTypes.number,
+    meta: PropTypes.shape({
+      wifi: PropTypes.bool,
+      parking: PropTypes.bool,
+      breakfast: PropTypes.bool,
+      pets: PropTypes.bool,
+    }),
+    location: PropTypes.shape({
+      address: PropTypes.string,
+      city: PropTypes.string,
+      zip: PropTypes.string,
+      country: PropTypes.string,
+      continent: PropTypes.string,
+    }),
+  }),
 };
 
 export default CreateVenue;

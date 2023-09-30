@@ -1,21 +1,34 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { API_URL } from "@/utils/api/constants";
 import styles from "./Register.module.scss";
 import { saveToLocalStorage } from "@/utils/localStorage";
 import { useUser } from "@/context/UserContext";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReply } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
+/**
+ * Register component for user registration.
+ * @returns {JSX.Element} The Register component.
+ */
 export const Register = () => {
   const router = useRouter();
-  const { setUser } = useUser(); // Access the setUser function from the context
+  const { setUser } = useUser();
+
   const [formData, setFormData] = useState({
-    name: "", // Add the user's name field
+    name: "",
     email: "",
     password: "",
     avatar: "",
     venueManager: false,
   });
 
+  /**
+   * Handles user registration.
+   * @param {React.SyntheticEvent} e - The form submission event.
+   */
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -31,29 +44,32 @@ export const Register = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert("You are now registered!");
+        toast.success("You are now registered!");
 
-        // Save registration data to local storage, including the user's name
         saveToLocalStorage("userData", {
           ...result,
           name: formData.name,
         });
 
-        // Set the user data in the context
         setUser(result);
 
         router.push("/login");
       } else {
         const errorResult = await response.json();
-        console.error("Registration error:", errorResult.message);
+        toast.error("Registration error: " + errorResult.message);
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      toast.error("Registration error: " + error.message);
     }
   };
 
   return (
     <div className={styles.register_container}>
+      <div className={styles.returnLink}>
+        <Link href='/'>
+          <FontAwesomeIcon icon={faReply} className={styles.icon} />
+        </Link>
+      </div>
       <h1>Register</h1>
       <form className={styles.register_form} onSubmit={handleRegister}>
         <input
@@ -99,20 +115,25 @@ export const Register = () => {
           onChange={(e) => setFormData({ ...formData, avatar: e.target.value })}
         />
 
-        <label>
-          Venue Manager:
-          <input
-            type='checkbox'
-            checked={formData.venueManager}
-            onChange={(e) =>
-              setFormData({ ...formData, venueManager: e.target.checked })
-            }
-          />
-        </label>
+        <div className={styles.venueManagerBox}>
+          <label>
+            <input
+              type='checkbox'
+              checked={formData.venueManager}
+              onChange={(e) =>
+                setFormData({ ...formData, venueManager: e.target.checked })
+              }
+            />
+            Venue Manager
+          </label>
+        </div>
 
         <button className={styles.register_button} type='submit'>
           Register
         </button>
+        <div className={styles.loginLink}>
+          <Link href='/login'>Login</Link>
+        </div>
       </form>
     </div>
   );

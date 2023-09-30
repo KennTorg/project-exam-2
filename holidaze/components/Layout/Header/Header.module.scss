@@ -1,23 +1,30 @@
 .header {
   position: sticky;
   background-color: #f6f6f6;
-  color: #000;
+  color: #212121;
   text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1400px;
+  //margin: 0 auto;
 
   nav {
     a {
-      color: #000;
+      color: #212121;
       text-decoration: none;
       margin: 0 1rem;
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: transform 0.2s ease;
       text-transform: uppercase;
+      font-size: 16px;
+      transform: scale(1);
+      display: inline-block;
 
       &:hover {
-        color: darkgray;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        transform: scale(1.1);
       }
     }
   }
@@ -27,15 +34,33 @@
   }
 }
 
+@media (max-width: 720px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.headerLogo {
+  margin-left: 20px;
+
+  a {
+    color: #212121;
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
 .logo {
-  color: #000;
+  color: #212121;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
 }
 
 .login_btn {
-  background-color: green;
+  background-color: #01032d;
   color: white;
   padding: 10px 16px;
   border: none;

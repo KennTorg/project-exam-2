@@ -1,12 +1,18 @@
 import React from "react";
-import styles from "@/styles/pages/Home.module.scss";
 import { useState, useEffect } from "react";
+import styles from "@/styles/pages/Home.module.scss";
 import { API_URL } from "@/utils/api/constants";
 import Loader from "@/components/Loader";
 import VenueCarousel from "@/components/VenueCarousel";
 import Link from "next/link";
 import UserProfile from "@/components/UserProfile";
+import { toast } from "react-toastify"; // Import the toast library
 
+/**
+ * HomeContent component for displaying the home page content.
+ *
+ * @component
+ */
 const HomeContent = () => {
   const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,15 +25,17 @@ const HomeContent = () => {
           const data = await response.json();
           setVenues(data);
         } else {
-          console.error("Failed to fetch venues:", response.statusText);
+          // Show an error toast if fetching venues fails
+          toast.error("Failed to fetch venues");
         }
       } catch (error) {
         console.error("An error occurred while fetching venues:", error);
+        // Show an error toast for the error
+        toast.error("An error occurred while fetching venues");
       } finally {
         setLoading(false);
       }
     };
-    console.log(venues);
     fetchVenues();
   }, []);
 
@@ -50,7 +58,6 @@ const HomeContent = () => {
           <div className={styles.home_box1}>
             <h4>The Journey Awaits</h4>
             <p>
-              {" "}
               Embark on a journey to the most enchanting destinations, where
               azure waters meet golden sands
             </p>
@@ -69,7 +76,6 @@ const HomeContent = () => {
           <div className={styles.home_box3}>
             <h4>Where Dreams Find a Home</h4>
             <p>
-              {" "}
               In the heart of every great vacation is the perfect place to stay.
             </p>
           </div>

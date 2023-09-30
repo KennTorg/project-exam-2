@@ -2,8 +2,23 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./VenueCarousel.module.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+/**
+ * VenueCarousel component to display a carousel of venues.
+ *
+ * @component
+ * @param {Array} venues - An array of venue objects to display in the carousel.
+ * @returns {JSX.Element} Rendered VenueCarousel component.
+ */
 
 const VenueCarousel = ({ venues }) => {
+  // Display a toast notification when there are no venues to display
+  if (!venues || venues.length === 0) {
+    toast.info("No venues available in the carousel.");
+  }
+
   return (
     <div className={styles.carouselContainer}>
       <Carousel

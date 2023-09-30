@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import PropTypes from "prop-types";
 import VenueCalendar from "../VenueCalendar";
 import styles from "./VenueDetails.module.scss";
 import BookingForm from "../BookingForm";
 import fetchVenueDetails from "@/utils/api/fetchVenueDetails";
 import Loader from "../Loader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+/**
+ * VenueDetails component to display details about a venue and its availability.
+ *
+ * @component
+ *
+ * @param {string} venueId - The ID of the venue to display details for.
+ *
+ * @returns {JSX.Element} Rendered VenueDetails component.
+ */
 const VenueDetails = ({ venueId }) => {
   const [venue, setVenue] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,12 +31,12 @@ const VenueDetails = ({ venueId }) => {
         const venueData = await fetchVenueDetails(venueId);
         if (venueData) {
           setVenue(venueData);
-          console.log("Venue Data from API:", venueData);
         } else {
           setError("Failed to fetch venue details");
         }
-      } catch (error) {
+      } catch (err) {
         setError("An error occurred while fetching venue details");
+        console.error("Error fetching venue details:", err);
       } finally {
         setLoading(false);
       }
@@ -53,12 +65,13 @@ const VenueDetails = ({ venueId }) => {
 
   // Error state
   if (error) {
+    toast.error("Error: " + error);
     return <p>Error: {error}</p>;
   }
 
   // Default image will show if there is no image added to the venue.
   const defaultImageUrl =
-    "https://images.unsplash.com/photo-1565024144485-d0076966fe6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9iaXR0b258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60"; // Update with the correct path to your default image
+    "https://images.unsplash.com/photo-1565024144485-d0076966fe6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9iaXR0b258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60";
 
   return (
     <div className={styles.venueDetails}>
@@ -127,17 +140,17 @@ const VenueDetails = ({ venueId }) => {
       <div className={styles.calendar_container}>
         <h2>Available Dates:</h2>
 
-        <VenueCalendar
-          bookedDates={bookedDates}
-          dateFrom={venue.dateFrom}
-          dateTo={venue.dateTo}
-        />
+        <VenueCalendar bookedDates={bookedDates} />
       </div>
       <div className={styles.booking_form}>
         <BookingForm venueId={venueId} />
       </div>
     </div>
   );
+};
+
+VenueDetails.propTypes = {
+  venueId: PropTypes.string.isRequired,
 };
 
 export default VenueDetails;

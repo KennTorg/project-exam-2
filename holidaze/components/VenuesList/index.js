@@ -1,12 +1,24 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./VenueList.module.scss";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+/**
+ * VenuesList component to display a list of venues.
+ *
+ * @component
+ *
+ * @param {Array} venues - An array of venue objects.
+ *
+ * @returns {JSX.Element} Rendered VenuesList component.
+ */
 const VenuesList = ({ venues }) => {
   const defaultImageUrl =
-    "https://images.unsplash.com/photo-1565024144485-d0076966fe6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9iaXR0b258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60"; // Update with the correct path to your default image
+    "https://images.unsplash.com/photo-1565024144485-d0076966fe6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9iaXR0b258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60";
 
   // Create state to manage the search input value
   const [searchQuery, setSearchQuery] = useState("");
@@ -80,6 +92,10 @@ const VenuesList = ({ venues }) => {
       </div>
     </div>
   );
+};
+
+VenuesList.propTypes = {
+  venues: PropTypes.array.isRequired,
 };
 
 export default VenuesList;

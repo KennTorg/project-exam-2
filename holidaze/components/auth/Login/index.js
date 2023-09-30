@@ -4,10 +4,20 @@ import { API_URL } from "@/utils/api/constants";
 import styles from "./Login.module.scss";
 import { saveToLocalStorage } from "@/utils/localStorage";
 import { useUser } from "@/context/UserContext";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReply } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+/**
+ * Login component for user authentication.
+ * @component
+ */
 export const Login = () => {
   const router = useRouter();
-  const { setUser } = useUser(); // Access the setUser function from the context
+  const { setUser } = useUser();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,31 +38,30 @@ export const Login = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert("Login successful!");
+        toast.success("Login successful");
 
         // Save login data to local storage
         saveToLocalStorage("accessToken", result.accessToken);
-
-        if (result.userData) {
-          // Save user data to local storage
-          saveToLocalStorage("userData", JSON.stringify(result.userData));
-        }
-
         // Set the user data in the context
         setUser(result);
 
         router.push("/");
       } else {
         const errorResult = await response.json();
-        console.error("Login error:", errorResult.message);
+        toast.error(`Login error: ${errorResult.message}`);
       }
     } catch (error) {
-      console.error("Login error:", error);
+      toast.error(`Login error: ${error.message}`);
     }
   };
 
   return (
     <div className={styles.login_container}>
+      <div className={styles.returnLink}>
+        <Link href='/'>
+          <FontAwesomeIcon icon={faReply} className={styles.icon} />
+        </Link>
+      </div>
       <h1>Login</h1>
       <form className={styles.login_form} onSubmit={handleLogin}>
         <input
@@ -76,7 +85,16 @@ export const Login = () => {
         <button className={styles.login_button} type='submit'>
           Login
         </button>
+        <div className={styles.registerLink}>
+          <Link href='/register'>Register</Link>
+        </div>
       </form>
     </div>
   );
 };
+
+Login.propTypes = {
+  styles: PropTypes.object.isRequired,
+};
+
+export default Login;

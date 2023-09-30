@@ -6,6 +6,11 @@ import CreateVenueModal from "@/components/modals/CreateVenueModal";
 import UpdateVenueModal from "@/components/modals/UpdateVenueModal";
 import fetchVenueDetails from "@/utils/api/fetchVenueDetails";
 
+/**
+ * Component for Managing Venues and to view bookings
+ * @returns
+ */
+
 const ManageVenues = () => {
   const [ownedVenues, setOwnedVenues] = useState([]);
   const [selectedVenue, setSelectedVenue] = useState({ bookings: [] });

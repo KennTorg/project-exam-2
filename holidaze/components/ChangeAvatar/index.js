@@ -1,9 +1,19 @@
-// ChangeAvatar.js
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
+/**
+ * ChangeAvatar component allows users to update their avatar.
+ * @param {Object} props - Component props.
+ * @param {function} props.onAvatarChange - Function to update the avatar.
+ */
 const ChangeAvatar = ({ onAvatarChange }) => {
   const [newAvatarUrl, setNewAvatarUrl] = useState("");
 
+  /**
+   * Handles the form submission to update the avatar.
+   * @param {Event} e - The form submit event.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -12,6 +22,9 @@ const ChangeAvatar = ({ onAvatarChange }) => {
 
     // Clear the input field
     setNewAvatarUrl("");
+
+    // Display a success message
+    toast.success("Avatar updated successfully", { position: "top-right" });
   };
 
   return (
@@ -28,6 +41,10 @@ const ChangeAvatar = ({ onAvatarChange }) => {
       </form>
     </div>
   );
+};
+
+ChangeAvatar.propTypes = {
+  onAvatarChange: PropTypes.func.isRequired,
 };
 
 export default ChangeAvatar;
