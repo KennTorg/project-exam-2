@@ -1,3 +1,4 @@
+import React from "react";
 import "@/styles/globals.scss";
 import { UserProvider } from "@/context/UserContext";
 import { VenueProvider } from "@/context/VenueContext";
