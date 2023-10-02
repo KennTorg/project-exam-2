@@ -1,9 +1,12 @@
-# netlify.toml
-# Production context
-[context.production.environment]
-  IS_PRODUCTION = "true"
-
-
 [build]
-  publish = "dist"
-  command = "npm run build"
+  command = "npm run build"  # Your build command
+  publish = "path/to/your/output-directory"  # The directory where your Next.js build files are located
+
+[build.environment]
+  # Optionally, you can set environment variables here if needed
+
+[build.cache]
+  paths = [
+    "node_modules",  # Cache Node.js dependencies
+    ".next/cache",    # Cache Next.js build artifacts
+  ]
