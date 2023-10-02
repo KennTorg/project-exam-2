@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"  
+  publish = "holidaze"  
+
+
+[build.cache]
+  paths = [
+    "node_modules",  
+    ".next/cache",    
+  ]
