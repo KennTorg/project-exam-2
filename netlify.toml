@@ -1,0 +1,9 @@
+# netlify.toml
+# Production context
+[context.production.environment]
+  IS_PRODUCTION = "true"
+
+
+[build]
+  publish = "dist"
+  command = "npm run build"
