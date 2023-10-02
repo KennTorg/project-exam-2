@@ -70,6 +70,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
 
+
 - This is a project for Noroff school of technology. The information is given from the Noroff
   Holidaze API.
 
@@ -115,6 +116,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
       <th>Repository</th>
       <td><a href="https://github.com/KennTorg/project-exam-2">Github Project Repository</a></td>
     </tr>
+    <tr>
+      <th>Demo link</th>
+      <td><a href="holidaze-pe2-noroff.netlify.app">Netlify Link</a></td>
+      </tr>
     
   </tbody>
 </table>
