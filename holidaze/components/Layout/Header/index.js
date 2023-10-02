@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router"; // Import the useRouter hook
 import styles from "./Header.module.scss";
 import Logout from "@/components/auth/Logout";
 import { toast } from "react-toastify";
@@ -10,6 +11,7 @@ import PropTypes from "prop-types";
  */
 const Header = () => {
   const [user, setUser] = useState(null);
+  const router = useRouter(); // Initialize the useRouter
 
   /**
    * Simulate user login or check if user data is available in local storage.
@@ -31,6 +33,13 @@ const Header = () => {
     });
   };
 
+  const handleProfileClick = () => {
+    // Check if the user is not logged in and route to the login page
+    if (!user) {
+      router.push("/login");
+    }
+  };
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.header}>
@@ -45,7 +54,7 @@ const Header = () => {
 
           {user ? (
             <>
-              <Link href='/profiles/[name]' as={`/profiles/${user.username}`}>
+              <Link href='/profiles/[name]' as={`/profiles/${user.username}`} onClick={handleProfileClick}>
                 Profile
               </Link>
 
