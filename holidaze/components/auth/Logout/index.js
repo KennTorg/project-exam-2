@@ -18,6 +18,13 @@ const Logout = () => {
     // Clear access token from localStorage
     localStorage.removeItem("accessToken");
 
+
+    // *************** FIX THIS *******************
+    //Clear the userData
+    // localStorage.removeItem("userData")
+    
+    // ********************************************
+
     // Set the user data in the context to null
     setUser(null);
 

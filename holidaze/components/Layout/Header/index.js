@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import Logout from "@/components/auth/Logout";
@@ -32,8 +32,8 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <>
+    <header className={styles.headerContainer}>
+      <div className={styles.header}>
         <div className={styles.headerLogo}>
           <Link href='/'>
             <h1>Holidaze</h1>
@@ -70,7 +70,7 @@ const Header = () => {
             </Link>
           )}
         </div>
-      </>
+      </div>
     </header>
   );
 };

@@ -1,4 +1,3 @@
-/* ProfileCard.module.css */
 .profileCard {
   //border: 1px solid #ddd;
   display: grid;
@@ -27,6 +26,10 @@
 
   button:hover {
     background-color: #0056b3;
+  }
+
+  @media (max-width: 400px){
+    grid-template-columns: 1fr;
   }
 }
 

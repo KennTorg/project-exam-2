@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { API_URL } from "@/utils/api/constants";
 import ProfileCard from "@/components/ProfileCard";

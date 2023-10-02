@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import fetchOwnedVenues from "@/utils/api/fetchManagerVenues";
 import styles from "./ManageVenues.module.scss";
 import deleteVenue from "@/utils/api/deleteVenue";

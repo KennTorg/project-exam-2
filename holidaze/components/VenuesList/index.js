@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./VenueList.module.scss";
 import Link from "next/link";

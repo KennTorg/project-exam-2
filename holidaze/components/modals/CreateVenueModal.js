@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
 import { API_URL } from "@/utils/api/constants";

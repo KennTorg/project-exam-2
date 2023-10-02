@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import moment from "moment";
+import React from "react";
 import PropTypes from "prop-types";
 import VenueCalendar from "../VenueCalendar";
 import styles from "./VenueDetails.module.scss";

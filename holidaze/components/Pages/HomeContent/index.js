@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/pages/Home.module.scss";
 import { API_URL } from "@/utils/api/constants";
 import Loader from "@/components/Loader";
@@ -79,10 +79,12 @@ const HomeContent = () => {
             </p>
           </div>
         </Link>
+
       </div>
       <div className={styles.carouselWrapper}>
         <VenueCarousel venues={venues} />
       </div>
+      
     </div>
   );
 };
