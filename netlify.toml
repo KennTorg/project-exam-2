@@ -1,12 +1,10 @@
 [build]
-  command = "npm run build"  # Your build command
-  publish = "path/to/your/output-directory"  # The directory where your Next.js build files are located
+  command = "npm run build"  
+  publish = "holidaze"  
 
-[build.environment]
-  # Optionally, you can set environment variables here if needed
 
 [build.cache]
   paths = [
-    "node_modules",  # Cache Node.js dependencies
-    ".next/cache",    # Cache Next.js build artifacts
+    "node_modules",  
+    ".next/cache",    
   ]
